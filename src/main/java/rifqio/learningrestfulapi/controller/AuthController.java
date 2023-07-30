@@ -1,14 +1,12 @@
 package rifqio.learningrestfulapi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rifqio.learningrestfulapi.dto.auth.LoginUserRequestDTO;
 import rifqio.learningrestfulapi.dto.auth.RegisterUserRequestDTO;
 import rifqio.learningrestfulapi.dto.TokenResponse;
 import rifqio.learningrestfulapi.dto.WebResponse;
+import rifqio.learningrestfulapi.entity.User;
 import rifqio.learningrestfulapi.service.AuthService;
 import rifqio.learningrestfulapi.service.UserService;
 
@@ -50,6 +48,22 @@ public class AuthController {
         } catch (Exception err) {
             return WebResponse.<TokenResponse>builder()
                     .message("Login Failed")
+                    .errors(err.getMessage())
+                    .build();
+        }
+    }
+
+    @DeleteMapping("logout")
+    public WebResponse<String> logout(User user) {
+        try {
+            return WebResponse.<String>builder()
+                    .message("Logout Success")
+                    .data(user.getUsername())
+                    .build();
+
+        } catch (Exception err) {
+            return WebResponse.<String>builder()
+                    .message("Logout Failed")
                     .errors(err.getMessage())
                     .build();
         }

@@ -10,7 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import rifqio.learningrestfulapi.dto.auth.RegisterUserRequestDTO;
 import rifqio.learningrestfulapi.dto.WebResponse;
+import rifqio.learningrestfulapi.entity.User;
 import rifqio.learningrestfulapi.repository.UserRepository;
+import utils.BCrypt;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -52,5 +54,28 @@ class AuthControllerTest {
             assertNotNull(response.getErrors());
         });
 
+    }
+
+    @Test
+    void logoutFailed() throws Exception {
+        mockMVc.perform(delete("/api/auth/logout")
+                        .accept("application/json"))
+                .andExpectAll(status().isUnauthorized());
+    }
+
+    @Test
+    void logoutSuccess() throws Exception {
+        User user = new User();
+        user.setUsername("test");
+        user.setName("test");
+        user.setPassword(BCrypt.hashpw("test", BCrypt.gensalt()));
+        user.setToken("test");
+        user.setTokenExpiredAt(System.currentTimeMillis() + (30L * 24 * 60 * 60 * 10000));
+        userRepository.save(user);
+
+        mockMVc.perform(delete("/api/auth/logout")
+                        .accept("application/json")
+                        .header("X-API-TOKEN", user.getToken()))
+                .andExpectAll(status().isOk());
     }
 }
