@@ -2,9 +2,9 @@ package rifqio.learningrestfulapi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import rifqio.learningrestfulapi.dto.UserResponse;
-import rifqio.learningrestfulapi.dto.WebResponse;
-import rifqio.learningrestfulapi.dto.users.UpdateUserRequestDTO;
+import rifqio.learningrestfulapi.dto.response.UserResponse;
+import rifqio.learningrestfulapi.dto.response.WebResponse;
+import rifqio.learningrestfulapi.dto.request.users.UpdateUserRequestDTO;
 import rifqio.learningrestfulapi.entity.User;
 import rifqio.learningrestfulapi.service.UserService;
 

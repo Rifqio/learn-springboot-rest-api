@@ -1,4 +1,4 @@
-package rifqio.learningrestfulapi.dto;
+package rifqio.learningrestfulapi.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WebResponse<T> {
-    private String message;
+public class UserResponse {
 
-    private T data;
+    private String username;
 
-    private String errors;
-
+    private String name;
 }

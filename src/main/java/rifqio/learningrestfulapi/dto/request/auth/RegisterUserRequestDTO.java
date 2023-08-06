@@ -1,4 +1,4 @@
-package rifqio.learningrestfulapi.dto.auth;
+package rifqio.learningrestfulapi.dto.request.auth;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

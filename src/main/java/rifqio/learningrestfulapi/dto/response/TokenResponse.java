@@ -1,4 +1,4 @@
-package rifqio.learningrestfulapi.dto;
+package rifqio.learningrestfulapi.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserResponse {
+public class TokenResponse {
 
-    private String username;
+    private String token;
 
-    private String name;
+    private Long expiredAt;
 }

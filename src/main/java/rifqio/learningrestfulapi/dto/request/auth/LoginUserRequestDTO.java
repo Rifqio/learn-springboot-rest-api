@@ -1,5 +1,6 @@
-package rifqio.learningrestfulapi.dto.users;
+package rifqio.learningrestfulapi.dto.request.auth;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,12 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UpdateUserRequestDTO {
 
+public class LoginUserRequestDTO {
+    @NotBlank
     @Size(max = 100)
-    private String name;
+    private String username;
 
+    @NotBlank
     @Size(max = 100)
     private String password;
-
 }

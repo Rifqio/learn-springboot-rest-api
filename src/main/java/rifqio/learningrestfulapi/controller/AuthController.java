@@ -2,10 +2,10 @@ package rifqio.learningrestfulapi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import rifqio.learningrestfulapi.dto.auth.LoginUserRequestDTO;
-import rifqio.learningrestfulapi.dto.auth.RegisterUserRequestDTO;
-import rifqio.learningrestfulapi.dto.TokenResponse;
-import rifqio.learningrestfulapi.dto.WebResponse;
+import rifqio.learningrestfulapi.dto.request.auth.LoginUserRequestDTO;
+import rifqio.learningrestfulapi.dto.request.auth.RegisterUserRequestDTO;
+import rifqio.learningrestfulapi.dto.response.TokenResponse;
+import rifqio.learningrestfulapi.dto.response.WebResponse;
 import rifqio.learningrestfulapi.entity.User;
 import rifqio.learningrestfulapi.service.AuthService;
 import rifqio.learningrestfulapi.service.UserService;
